@@ -1,6 +1,6 @@
-FROM ubuntu:16.04
+FROM arm64v8/ubuntu:16.04
 
-LABEL mantainer="Eloy Lopez <elswork@gmail.com>"
+LABEL mantainer="Samina Fu <sufuf3@gmail.com>"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -22,9 +22,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-
-RUN pip3 install -U pip==9.0.3 && \
-    pip3 --no-cache-dir install \
+RUN pip3 install --upgrade pip
+RUN pip3 install -U \
      ipykernel \
      jupyterlab \
      matplotlib \
